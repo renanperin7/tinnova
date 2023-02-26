@@ -12,4 +12,6 @@ router.delete('/veiculos/:id', carrosController.deleteVeiculo)
 
 router.put('/veiculos/:id', carrosMiddleware.validateMarca, carrosController.updateVeiculo)
 
+router.patch('/veiculos/:id', carrosController.patchVeiculo)
+
 module.exports = router

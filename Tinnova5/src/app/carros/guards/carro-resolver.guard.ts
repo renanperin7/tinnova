@@ -2,20 +2,20 @@ import { Observable } from 'rxjs/internal/Observable';
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
-import { Carro } from '../carros-lista/carro';
+import { Carros } from '../carros-lista/carro';
 import { CarrosService } from './../carros.service';
 import { of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CarroResolverGuard implements Resolve<Carro> {
+export class CarroResolverGuard implements Resolve<Carros> {
 
   constructor(
     private carrosService: CarrosService
   ) {}
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Carro> {
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Carros> {
 
     if(route.params && route.params['id']) {
       return this.carrosService.loadByID(route.params['id'])

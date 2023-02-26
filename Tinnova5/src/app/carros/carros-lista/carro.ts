@@ -1,4 +1,4 @@
-export interface Carro {
+export interface Carros {
   id: number | null
   veiculo: string | null
   marca: string | null

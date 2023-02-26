@@ -3,19 +3,19 @@ import { HttpClient, HttpParams } from '@angular/common/http'
 import { enviroment } from '../../enviroments/enviroment';
 import { delay, Observable, take, tap } from 'rxjs'
 
-import { Carro } from './carros-lista/carro';
+import { Carros } from './carros-lista/carro';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CarrosService {
 
-  private readonly API = `${enviroment.API}carros`
+  private readonly API = `${enviroment.API}veiculos`
 
   constructor(private http: HttpClient) { }
 
-  list() {
-    return this.http.get<Carro[]>(this.API)
+  list(): Observable<Carros[]> {
+    return this.http.get<Carros[]>(this.API)
     .pipe(
       delay(1000),
       tap(console.log)
@@ -23,18 +23,18 @@ export class CarrosService {
   }
 
   loadByID(id: any) {
-    return this.http.get<Carro>(`${this.API}/${id}`).pipe(take(1))
+    return this.http.get<Carros>(`${this.API}/${id}`).pipe(take(1))
   }
 
-  private create(carro: Carro) {
+  private create(carro: Carros) {
     return this.http.post(this.API, carro).pipe(take(1))
   }
 
-  private update(carro: Carro) {
+  private update(carro: Carros) {
     return this.http.put(`${this.API}/${carro.id}`, carro).pipe(take(1))
   }
 
-  save(carro: Carro) {
+  save(carro: Carros) {
     if(carro.id) {
       return this.update(carro)
     }
@@ -45,7 +45,7 @@ export class CarrosService {
     return this.http.delete(`${this.API}/${id}`).pipe(take(1))
   }
 
-  getPostsFromLastWeek(): Observable<Carro[]> {
+  getPostsFromLastWeek(): Observable<Carros[]> {
     const oneWeekAgo = new Date();
     oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
 
@@ -53,6 +53,6 @@ export class CarrosService {
       .set('startDate', oneWeekAgo.toISOString())
       .set('endDate', new Date().toISOString());
 
-    return this.http.get<Carro[]>(this.API, {params})
+    return this.http.get<Carros[]>(this.API, {params})
   }
 }

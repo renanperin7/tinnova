@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { catchError, map, Observable, of, take } from 'rxjs';
-import { Carro } from '../carros/carros-lista/carro';
+import { Carros } from '../carros/carros-lista/carro';
 import { CarrosService } from '../carros/carros.service';
 import { AlertModalService } from '../shared/alert-modal.service';
 
@@ -10,9 +10,9 @@ import { AlertModalService } from '../shared/alert-modal.service';
   styleUrls: ['./more-info.component.css'],
 })
 export class MoreInfoComponent {
-  carros$!: Observable<Carro[]>;
+  carros$!: Observable<Carros[]>;
   quantidade: number = 0;
-  carroNaoVendido: Carro[] = []
+  carroNaoVendido: Carros[] = []
 
   decada1990: number = 0
   decada2000: number = 0
@@ -22,7 +22,7 @@ export class MoreInfoComponent {
   chevrolet: string = ''
   hyundai: string = ''
   honda: string = ''
-  posts: Carro[] = []
+  posts: Carros[] = []
 
   constructor(
     private carrosService: CarrosService,

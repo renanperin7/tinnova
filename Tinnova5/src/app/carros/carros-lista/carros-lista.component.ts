@@ -6,7 +6,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 
 import { AlertModalService } from './../../shared/alert-modal.service';
 import { CarrosService } from '../carros.service';
-import { Carro } from './carro';
+import { Carros } from './carro';
 
 @Component({
   selector: 'app-carros-lista',
@@ -16,9 +16,9 @@ import { Carro } from './carro';
 export class CarrosListaComponent implements OnInit {
 
   bsModalRef!: BsModalRef;
-  carroSelecionado!: Carro
+  carroSelecionado!: Carros
 
-  carros$!: Observable<Carro[]>;
+  carros$!: Observable<Carros[]>;
   error$ = new Subject<boolean>();
 
   constructor(
@@ -54,7 +54,7 @@ export class CarrosListaComponent implements OnInit {
     this.router.navigate(['editar', id], { relativeTo: this.route})
   }
 
-  onDelete(carro: Carro) {
+  onDelete(carro: Carros) {
     this.carroSelecionado = carro
     const result$ = this.alertModalService.showConfirm('Confirmação', 'Tem certeza que deseja remover esse carro?')
     result$.asObservable()

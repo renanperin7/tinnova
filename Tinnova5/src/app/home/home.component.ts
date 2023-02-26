@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { catchError, Observable, of, take } from 'rxjs';
-import { Carro } from '../carros/carros-lista/carro';
+import { Carros } from '../carros/carros-lista/carro';
 import { CarrosService } from '../carros/carros.service';
 import { AlertModalService } from '../shared/alert-modal.service';
 
@@ -11,7 +11,7 @@ import { AlertModalService } from '../shared/alert-modal.service';
 })
 export class HomeComponent implements OnInit {
 
-  carros$!: Observable<Carro[]>;
+  carros$!: Observable<Carros[]>;
 
   constructor(
     private carrosService: CarrosService,

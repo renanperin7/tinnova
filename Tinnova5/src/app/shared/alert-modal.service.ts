@@ -1,7 +1,7 @@
 import { Injectable, ViewChild } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import {  Observable } from 'rxjs';
-import { Carro } from '../carros/carros-lista/carro';
+import { Carros } from '../carros/carros-lista/carro';
 import { CarrosService } from '../carros/carros.service';
 
 import { AlertModalComponent } from './alert-modal/alert-modal.component';
@@ -19,7 +19,7 @@ export class AlertModalService {
 
   deleteModalRef?: BsModalRef;
 
-  carros$!: Observable<Carro[]>
+  carros$!: Observable<Carros[]>
 
 constructor(private modalService: BsModalService, private carrosService: CarrosService) { }
 

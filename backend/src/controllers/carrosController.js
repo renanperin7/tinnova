@@ -27,9 +27,18 @@ const updateVeiculo = async (req, res) => {
   return res.status(204).json()
 }
 
+const patchVeiculo = async (req, res) => {
+  const { id } = req.params
+
+  await carrosModel.updateVeiculo(id, req.body)
+
+  return res.status(204).json()
+}
+
 module.exports = {
   getAll,
   createVeiculo,
   deleteVeiculo,
-  updateVeiculo
+  updateVeiculo,
+  patchVeiculo
 }

@@ -31,9 +31,20 @@ const updateVeiculo = async (id, carro) => {
   return updatedVeiculo
 }
 
+const patchVeiculo = async (id, carro) => {
+  const { veiculo, marca, ano, descricao, vendido, created, updated } = carro
+
+  const query = 'UPDATE carros SET veiculo = ?, marca = ?, ano = ?, descricao = ?, vendido = ?, created = ?, updated = ? WHERE id = ?'
+
+  const [patchedVeiculo] = await connection.execute(query, [veiculo, marca, ano, descricao, vendido, created, updated, id])
+
+  return patchedVeiculo
+}
+
 module.exports = {
   getAll,
   createVeiculo,
   deleteVeiculo,
-  updateVeiculo
+  updateVeiculo,
+  patchVeiculo
 }
