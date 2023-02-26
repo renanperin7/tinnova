@@ -62,7 +62,7 @@ export class MoreInfoComponent {
 
   getVendido() {
     this.carrosService.list().subscribe((dados: any) => {
-      const carroVendido = dados.filter((objeto: any) => objeto.vendido === false);
+      const carroVendido = dados.filter((objeto: any) => objeto.vendido === 0);
 
       this.quantidade = carroVendido.length
     });
@@ -70,7 +70,7 @@ export class MoreInfoComponent {
 
   getCarroVendido() {
     this.carrosService.list().subscribe((dados: any[]) => {
-      this.carroNaoVendido = dados.filter((objeto: any) => objeto.vendido === false);
+      this.carroNaoVendido = dados.filter((objeto: any) => objeto.vendido === 0);
     });
   }
 

@@ -5,6 +5,12 @@ const getAll = async () => {
   return carros
 }
 
+const getId = async (id) => {
+  const [carros] = await connection.execute('SELECT * FROM carros WHERE id = ?', [id])
+
+  return carros
+}
+
 const createVeiculo = async (carro) => {
   const { veiculo, marca, ano, descricao, vendido, created, updated } = carro
 
@@ -46,5 +52,6 @@ module.exports = {
   createVeiculo,
   deleteVeiculo,
   updateVeiculo,
-  patchVeiculo
+  patchVeiculo,
+  getId
 }

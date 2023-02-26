@@ -17,8 +17,7 @@ export class CarrosService {
   list(): Observable<Carros[]> {
     return this.http.get<Carros[]>(this.API)
     .pipe(
-      delay(1000),
-      tap(console.log)
+      delay(1000)
     )
   }
 

@@ -6,6 +6,8 @@ const router = express.Router()
 
 router.get('/veiculos', carrosController.getAll)
 
+router.get('/veiculos/:id', carrosController.getId)
+
 router.post('/veiculos', carrosMiddleware.validateVeiculo, carrosController.createVeiculo)
 
 router.delete('/veiculos/:id', carrosController.deleteVeiculo)

@@ -6,6 +6,14 @@ const getAll = async (_req, res) => {
   return res.status(200).json(carros)
 }
 
+const getId = async (req, res) => {
+  const { id } = req.params
+
+  const carros = await carrosModel.getId(id)
+
+  return res.status(200).json(carros)
+}
+
 const createVeiculo = async (req, res) => {
   const createdVeiculo = await carrosModel.createVeiculo(req.body)
 
@@ -16,6 +24,7 @@ const deleteVeiculo = async (req, res) => {
   const { id } = req.params
 
   await carrosModel.deleteVeiculo(id)
+
   return res.status(204).json()
 }
 
@@ -40,5 +49,6 @@ module.exports = {
   createVeiculo,
   deleteVeiculo,
   updateVeiculo,
-  patchVeiculo
+  patchVeiculo,
+  getId
 }
