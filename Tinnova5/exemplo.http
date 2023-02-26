@@ -1,0 +1,28 @@
+http://localhost:3000/carros
+
+###
+
+GET http://localhost:3000/carros/1
+
+###
+
+POST http://localhost:3000/carros HTTP/1.1
+content-type: application/json
+
+{
+    "nome": "Golf"
+}
+
+
+###
+
+PUT http://localhost:3000/carros/2 HTTP/1.1
+content-type: application/json
+
+{
+    "nome": "Golf TSI"
+}
+
+###
+
+DELETE http://localhost:3000/carros/2

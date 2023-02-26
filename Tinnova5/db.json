@@ -1,0 +1,14 @@
+{
+  "carros": [
+    {
+      "id": 1,
+      "veiculo": "Civic",
+      "marca": "Honda",
+      "ano": "2018",
+      "descricao": "Carro Sedan",
+      "vendido": false,
+      "created": "25/02/2023",
+      "updated": "25/02/2023"
+    }
+  ]
+}
