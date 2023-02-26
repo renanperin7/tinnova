@@ -5,6 +5,6 @@ export interface Carro {
   ano: number | null
   descricao: string | null
   vendido: boolean | null
-  created: number | null
-  updated: number | null
+  created: Date | null
+  updated: Date | null
 }

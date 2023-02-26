@@ -27,7 +27,7 @@
           <td>{{ carro.veiculo }}</td>
           <td>{{ carro.ano }}</td>
           <td>{{ carro.descricao }}</td>
-          <td>{{ carro.created }}</td>
+          <td>{{ carro.created | date:'dd-MM-yyyy' }}</td>
           <td>
             <span class="float-right">
               <button class="btn btn-outline-danger mb-1 btn-sm" (click)="onDelete(carro)">Remover</button>
