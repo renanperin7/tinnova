@@ -1,0 +1,81 @@
+<div class="card">
+  <div class="card-header">
+    <div class="card-title float-left">
+      <h4>Mais Informações</h4>
+    </div>
+  </div>
+  <div class="card-body">
+    <table class="table table-hover"  *ngIf="carros$ | async as carros; else loading">
+      <thead>
+        <tr>
+          <th>Veículos não vendidos: {{ quantidade }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let carro of carroNaoVendido">
+          <td>{{ carro.veiculo }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <ng-template #loading>
+      <span>Carregando Lista de Informações...</span>
+    </ng-template>
+  </div>
+  <div class="card-body">
+    <table class="table table-hover"  *ngIf="carros$ | async as carros">
+      <thead>
+        <tr>
+          <th>Veículos por década de fabricação</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Década de 1990: {{ decada1990 }}</td>
+        </tr>
+          <tr>
+            <td>Década de 2000: {{ decada2000 }}</td>
+          </tr>
+          <tr>
+            <td>Década de 2010: {{ decada2010 }}</td>
+          </tr>
+          <tr>
+            <td>Década de 2020: {{ decada2020 }}</td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card-body">
+    <table class="table table-hover"  *ngIf="carros$ | async as carros">
+      <thead>
+        <tr>
+          <th>Veículos por fabricante</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Chevrolet: {{ chevrolet }}</td>
+        </tr>
+        <tr>
+          <td>Hyundai: {{ hyundai }}</td>
+        </tr>
+        <tr>
+          <td>Honda: {{ honda }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card-body">
+    <table class="table table-hover"  *ngIf="carros$ | async as carros">
+      <thead>
+        <tr>
+          <th>Veículos postados na última semana</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let post of posts">
+          <td>{{ post.veiculo }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

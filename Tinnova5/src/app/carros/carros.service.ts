@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpParams } from '@angular/common/http'
 import { enviroment } from '../../enviroments/enviroment';
-import { delay, take, tap } from 'rxjs'
+import { delay, Observable, take, tap } from 'rxjs'
 
 import { Carro } from './carros-lista/carro';
 
@@ -43,5 +43,16 @@ export class CarrosService {
 
   delete(id: any) {
     return this.http.delete(`${this.API}/${id}`).pipe(take(1))
+  }
+
+  getPostsFromLastWeek(): Observable<Carro[]> {
+    const oneWeekAgo = new Date();
+    oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+
+    const params = new HttpParams()
+      .set('startDate', oneWeekAgo.toISOString())
+      .set('endDate', new Date().toISOString());
+
+    return this.http.get<Carro[]>(this.API, {params})
   }
 }

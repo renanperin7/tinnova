@@ -1,7 +1,7 @@
 <div class="card">
   <div class="card-header">
     <div class="card-title float-left">
-      <h4>Carros</h4>
+      <h4>Lista de Carros</h4>
     </div>
     <div class="float-right">
       <button type="button" class="btn btn-primary" [routerLink]="['novo']">Novo Carro</button>
@@ -15,9 +15,8 @@
           <th>Marca</th>
           <th>Veículo</th>
           <th>Ano</th>
-          <th>Descrição</th>
           <th>Data da postagem</th>
-          <th></th>
+          <th>Vendido</th>
           <th></th>
         </tr>
       </thead>
@@ -26,8 +25,8 @@
           <td>{{ carro.marca }}</td>
           <td>{{ carro.veiculo }}</td>
           <td>{{ carro.ano }}</td>
-          <td>{{ carro.descricao }}</td>
-          <td>{{ carro.created | date:'dd-MM-yyyy' }}</td>
+          <td>{{ carro.created | date:'dd/MM/yyyy' }}</td>
+          <td>{{ carro.vendido | vendido }}</td>
           <td>
             <span class="float-right">
               <button class="btn btn-outline-danger mb-1 btn-sm" (click)="onDelete(carro)">Remover</button>

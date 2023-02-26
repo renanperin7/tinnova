@@ -5,7 +5,7 @@ import { Location } from '@angular/common';
 
 import { CarrosService } from '../carros.service';
 import { AlertModalService } from './../../shared/alert-modal.service';
-import { map, switchMap } from 'rxjs';
+import { map, pipe, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-carros-form',
@@ -66,5 +66,10 @@ export class CarrosFormComponent implements OnInit {
   onCancel() {
     this.submitted = false;
     this.form.reset();
+  }
+
+  onToggle() {
+    const vendido = this.form.get('vendido')
+    vendido?.setValue(!vendido.value)
   }
 }

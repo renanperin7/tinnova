@@ -2,47 +2,100 @@
   <div class="form-row">
     <div class="col-sm-12">
       <label for="veiculo">Veículo</label>
-      <input type="text" class="form-control" formControlName="veiculo" id="veiculo" placeholder="Digite o nome do veículo">
+      <input
+        type="text"
+        class="form-control"
+        formControlName="veiculo"
+        id="veiculo"
+        placeholder="Digite o nome do veículo"
+      />
     </div>
   </div>
 
   <div class="form-row">
     <div class="col-sm-12">
       <label for="marca">Marca</label>
-      <input type="text" class="form-control" formControlName="marca" id="marca" placeholder="Digite o nome do marca">
+      <input
+        type="text"
+        class="form-control"
+        formControlName="marca"
+        id="marca"
+        placeholder="Digite o nome do marca"
+      />
     </div>
   </div>
 
   <div class="form-row">
     <div class="col-sm-12">
       <label for="ano">Ano</label>
-      <input type="text" class="form-control" formControlName="ano" id="ano" placeholder="Digite o ano">
+      <input
+        type="text"
+        class="form-control"
+        formControlName="ano"
+        id="ano"
+        placeholder="Digite o ano"
+      />
     </div>
   </div>
 
   <div class="form-row">
     <div class="col-sm-12">
       <label for="descricao">Descrição</label>
-      <input type="text" class="form-control" formControlName="descricao" id="descricao" placeholder="Digite a descrição">
+      <input
+        type="text"
+        class="form-control"
+        formControlName="descricao"
+        id="descricao"
+        placeholder="Digite a descrição"
+      />
     </div>
   </div>
 
   <div class="form-row">
     <div class="col-sm-12">
       <label for="created">Postado em</label>
-      <input type="date" class="form-control" formControlName="created" id="created" placeholder="Criado em">
+      <input
+        type="date"
+        class="form-control"
+        formControlName="created"
+        id="created"
+        placeholder="Criado em"
+      />
     </div>
   </div>
 
   <div class="form-row">
     <div class="col-sm-12">
       <label for="updated">Atualizado em</label>
-      <input type="date" class="form-control" formControlName="updated" id="updated" placeholder="Atualizado em">
+      <input
+        type="date"
+        class="form-control"
+        formControlName="updated"
+        id="updated"
+        placeholder="Atualizado em"
+      />
     </div>
   </div>
 
+  <div class="form-row">
+    <div class="col-sm-2">
+      <label for="vendido">Vendido</label>
+      <input class="form-control" formControlName="vendido" id="vendido" placeholder=""/>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-sm-2">
+      <button type="button" class="btn btn-success" (click)="onToggle()">
+        Vendido
+      </button>
+    </div>
+  </div>
   <div>
-    <button type="button" class="btn btn-primary" (click)="onSubmit()">Salvar</button>
-    <button type="button" class="btn btn-default" (click)="onCancel()">Cancelar</button>
+    <button type="button" class="btn btn-primary" (click)="onSubmit()">
+      Salvar
+    </button>
+    <button type="button" class="btn btn-default" (click)="onCancel()">
+      Cancelar
+    </button>
   </div>
 </form>
