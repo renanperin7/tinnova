@@ -9,6 +9,26 @@
       "vendido": false,
       "created": "2023-02-25",
       "updated": "2023-02-25"
+    },
+    {
+      "id": 2,
+      "veiculo": "Corolla",
+      "marca": "Chevrolet",
+      "ano": "2023",
+      "descricao": "O Corolla é o Sedã Médio mais seguro da América Latina e já produzido pela Toyota do Brasil.",
+      "vendido": null,
+      "created": "2023-02-25",
+      "updated": "2023-02-25"
+    },
+    {
+      "id": 3,
+      "veiculo": "HB20",
+      "marca": "Hyundai",
+      "ano": "2023",
+      "descricao": "O Novo Hyundai HB20 tem personalidade arrojada e dinâmica.",
+      "vendido": null,
+      "created": "2023-02-25",
+      "updated": "2023-02-25"
     }
   ]
 }
