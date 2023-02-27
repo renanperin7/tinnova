@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http'
-import { enviroment } from '../../enviroments/enviroment';
+import { environment } from '../../environments/environment';
 import { delay, Observable, take, tap } from 'rxjs'
 
 import { Carros } from './carros-lista/carro';
@@ -10,7 +10,7 @@ import { Carros } from './carros-lista/carro';
 })
 export class CarrosService {
 
-  private readonly API = `${enviroment.API}veiculos`
+  private readonly API = `${environment.API}veiculos`
 
   constructor(private http: HttpClient) { }
 
@@ -21,8 +21,8 @@ export class CarrosService {
     )
   }
 
-  loadByID(id: any) {
-    return this.http.get<Carros>(`${this.API}/${id}`).pipe(take(1))
+  loadByID(id: number) {
+    return this.http.get<Carros[]>(`${this.API}/${id}`).pipe(take(1))
   }
 
   private create(carro: Carros) {
@@ -40,7 +40,7 @@ export class CarrosService {
     return this.create(carro)
   }
 
-  delete(id: any) {
+  delete(id: number | null) {
     return this.http.delete(`${this.API}/${id}`).pipe(take(1))
   }
 

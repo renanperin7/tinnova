@@ -30,7 +30,7 @@ const deleteVeiculo = async (id) => {
 const updateVeiculo = async (id, carro) => {
   const { veiculo, marca, ano, descricao, vendido, created, updated } = carro
 
-  const query = 'UPDATE carros SET veiculo = ?, marca = ?, ano = ?, descricao = ?, vendido = ?, created = ?, updated = ? WHERE id = ?'
+  const query = 'UPDATE carros SET veiculo = ?, marca = ?, ano = ?, descricao = ?, vendido = ?, updated = ? WHERE id = ?'
 
   const [updatedVeiculo] = await connection.execute(query, [veiculo, marca, ano, descricao, vendido, created, updated, id])
 

@@ -1,6 +1,7 @@
+import { HttpClientModule, HttpParams } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 import { CarrosRoutingModule } from './carros-routing.module';
 import { CarrosListaComponent } from './carros-lista/carros-lista.component';
@@ -21,7 +22,9 @@ import { SharedModule } from "../shared/shared.module";
         CommonModule,
         CarrosRoutingModule,
         ReactiveFormsModule,
-        SharedModule
+        FormsModule,
+        SharedModule,
+        HttpClientModule
     ]
 })
 export class CarrosModule { }

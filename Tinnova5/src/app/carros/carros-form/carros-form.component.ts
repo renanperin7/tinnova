@@ -1,4 +1,5 @@
-import { ActivatedRoute } from '@angular/router';
+import { Carros } from './../carros-lista/carro';
+import { ActivatedRoute, ActivatedRouteSnapshot, Route, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
@@ -13,7 +14,18 @@ import { map, pipe, switchMap } from 'rxjs';
   styleUrls: ['./carros-form.component.css'],
 })
 export class CarrosFormComponent implements OnInit {
-  form!: FormGroup;
+
+  form = this.fb.group({
+    id: [0],
+    veiculo: ['', [Validators.required]],
+    marca: ['', [Validators.required]],
+    ano: ['', [Validators.required]],
+    descricao: ['', [Validators.required]],
+    vendido: [false],
+    created: [''],
+    updated: ['']
+  });
+
   submitted: boolean = false;
 
   constructor(
@@ -21,24 +33,28 @@ export class CarrosFormComponent implements OnInit {
     private carroService: CarrosService,
     private alertModalService: AlertModalService,
     private location: Location,
-    private route: ActivatedRoute
+    private route: Router
   ) {}
 
   ngOnInit() {
-
-    const carro = this.route.snapshot.data['carro']
-
-    this.form = this.fb.group({
-      id: [carro.id],
-      veiculo: [carro.veiculo, [Validators.required]],
-      marca: [carro.marca, [Validators.required]],
-      ano: [carro.ano, [Validators.required]],
-      descricao: [carro.descricao, [Validators.required]],
-      vendido: [carro.vendido],
-      created: [carro.created, [Validators.required]],
-      updated: [carro.updated, [Validators.required]],
-    });
+    if(this.route.url.split('/')[2] === 'editar') {
+      this.carroService.loadByID(parseInt(this.route.url.split('/')[3])).subscribe({
+      next: (result) => {
+        console.log(result)
+        this.form.patchValue({
+          id: result[0].id,
+          veiculo: result[0].veiculo,
+          marca: result[0].marca,
+          ano: result[0].ano,
+          descricao: result[0].descricao,
+          vendido: result[0].vendido,
+          created: result[0].created,
+          updated: result[0].updated
+        });
+      }
+    })
   }
+}
 
 
   onSubmit() {
@@ -53,7 +69,16 @@ export class CarrosFormComponent implements OnInit {
         msgError = 'Erro ao editar carro'
       }
 
-      this.carroService.save(this.form.value).subscribe(
+      const novoCarro: Carros = {id: this.form.value.id as number,
+        veiculo: this.form.value.veiculo as string,
+        marca: this.form.value.marca as string,
+        ano: this.form.value.ano as string,
+        descricao: this.form.value.descricao as string,
+        vendido: this.form.value.vendido as boolean,
+        created: this.form.value.created as string,
+        updated: this.form.value.updated as string}
+
+      this.carroService.save(novoCarro).subscribe(
         success => {
           this.alertModalService.showAlertSuccess(msgSuccess),
           this.location.back();
