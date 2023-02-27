@@ -22,6 +22,9 @@ export class MoreInfoComponent {
   chevrolet: string = ''
   hyundai: string = ''
   honda: string = ''
+  fiat: string = ''
+  citroen: string = ''
+  toyota: string = ''
   posts: Carros[] = []
 
   constructor(
@@ -50,6 +53,9 @@ export class MoreInfoComponent {
     this.getMarca('Chevrolet').subscribe((marca: string) => this.chevrolet = marca)
     this.getMarca('Hyundai').subscribe((marca: string) => this.hyundai = marca)
     this.getMarca('Honda').subscribe((marca: string) => this.honda = marca)
+    this.getMarca('Fiat').subscribe((marca: string) => this.fiat = marca)
+    this.getMarca('Citroen').subscribe((marca: string) => this.citroen = marca)
+    this.getMarca('Toyota').subscribe((marca: string) => this.toyota = marca)
 
     this.carrosService.getPostsFromLastWeek().subscribe(posts => this.posts = posts)
   }
